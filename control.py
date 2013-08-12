@@ -74,7 +74,7 @@ if form.getvalue('move') in movemap:
    subject = "Moving %s" % form.getvalue('move')
 
 else:
-   subject = "Not entered"
+   subject = "Nothing yet"
 
 
 print "<img src='usb-robot-arm.png' width='1029' height='604' border='0' usemap='#map' />"
@@ -104,7 +104,7 @@ print "<head>"
 print "<title>OWI/Maplin Robotic Arm</title>"
 print "</head>"
 print "<body>"
-print "<h2> Selected Subject is %s</h2>" % subject
+print "<h2> Moving  %s</h2>" % subject
 
 print "</body>"
 print "</html>"
