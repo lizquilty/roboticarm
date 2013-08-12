@@ -1,4 +1,4 @@
-roboticarm
+Python Web based OWI/Maplin Robotic Arm
 ==========
 
 Buy an OWI or Maplin robotic arm (looks like the one in the image in this github). Its cheap, around $50USD or so
