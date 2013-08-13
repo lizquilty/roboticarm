@@ -14,9 +14,6 @@ print "Content-type: text/html"
 print
 
 
-#value = form.getlist("username")
-#usernames = ",".join(value)
-
 #ROBOT ARM CONTROL PROGRAM
 #Check if the arm is detected and warn if not
 if RoboArm is None:
@@ -45,10 +42,6 @@ def MoveArm(Duration, ArmCmd): #After this, all code until the demo commands mus
 #MoveArm(1,[0,0,1]) #Light on
 #MoveArm(1,[0,0,0]) #Light off
 
-# Create instance of FieldStorage 
-form = cgi.FieldStorage() 
-
-
 
 movemap = {
    'base-anti-clockwise' : [0,1,0],
@@ -66,6 +59,8 @@ movemap = {
    'stop': [0,0,0]
 }
 
+# Create instance of FieldStorage 
+form = cgi.FieldStorage() 
 
 # Get data from fields
 if form.getvalue('move') in movemap:
