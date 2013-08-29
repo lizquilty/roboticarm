@@ -31,5 +31,5 @@ sudo usermod -aG plugdev www-data
 ````
 Reboot
 
-upload the contents of this directory, and it should work at http://yourip/control.py
+upload the contents of this directory, and it should work at http://yourip/armtrol.py
 
