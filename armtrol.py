@@ -28,7 +28,7 @@ Duration = 1  # Create a variable for duration
 
 
 print("Content-type: text/html")
-print(' ')
+print('')
 
 
 #value = form.getlist("username")
