@@ -1,11 +1,13 @@
 #!/usr/bin/python
 # This is a SLI app that makes the Robot arm 'wave' at you when it detects a person via PIR
 # hardware setup at http://learn.adafruit.com/adafruits-raspberry-pi-lesson-12-sensing-movement/hardware
+# If/when you need to quit, use ^C and do it when its NOT moving (should you not, motors keep going)
 
 import time
 import RPi.GPIO as io
 import usb.core, usb.util
-
+import pyttsx
+import random
 io.setmode(io.BCM)
 
 
@@ -34,16 +36,21 @@ pir_pin = 18
  
 io.setup(pir_pin, io.IN)         # activate input
 #io.setup(door_pin, io.IN, pull_up_down=io.PUD_UP)  # activate input with PullUp
+greetings = ['Hello', 'Hi', 'Sup', 'Heya', 'Gidday', 'Yo', 'Aloha', 'Ke ora', 'Howdy', 'Hiya', 'Ni hau']
  
 while True:
     if io.input(pir_pin):
         print("PIR ALARM!")
+	engine = pyttsx.init()
+	from random import choice
+	engine.say(choice(greetings))
+	engine.runAndWait()
         MoveArm(1,[4,0,0]) #Wrist up
         MoveArm(1,[8,0,0]) #Wrist down
-        MoveArm(1,[4,0,0]) #Wrist up
-        MoveArm(1,[8,0,0]) #Wrist down
-        MoveArm(1,[4,0,0]) #Wrist up
-        MoveArm(1,[8,0,0]) #Wrist down
+#        MoveArm(1,[4,0,0]) #Wrist up
+#        MoveArm(1,[8,0,0]) #Wrist down
+#        MoveArm(1,[4,0,0]) #Wrist up
+#        MoveArm(1,[8,0,0]) #Wrist down
 #    if io.input(door_pin):
 #        print("DOOR ALARM!")
 #    time.sleep(0.5)
